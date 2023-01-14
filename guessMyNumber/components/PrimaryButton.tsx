@@ -1,15 +1,21 @@
-import {View, Text} from 'react-native'
+import React from "react";
+import { View, Text, Pressable } from "react-native";
 
-export interface Props  { 
-    children: React.ReactNode
- }
-
-function PrimaryButton(props: Props) {
-   return (
-    <View>
-        <Text>{props.children}</Text>
-    </View>
-   )
+export interface Props {
+  children: React.ReactNode;
 }
 
-export default PrimaryButton
+function pressHandler(data: React.ReactNode) {
+  console.log(data);
+}
+function PrimaryButton(props: Props) {
+  return (
+    <Pressable onPress={() => pressHandler(props.children)}>
+      <View>
+        <Text>{props.children}</Text>
+      </View>
+    </Pressable>
+  );
+}
+
+export default PrimaryButton;
